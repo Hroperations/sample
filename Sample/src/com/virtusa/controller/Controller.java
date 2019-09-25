@@ -3,11 +3,11 @@ package com.virtusa.controller;
 import com.virtusa.factory.UserFactory;
 import com.virtusa.model.UserModel;
 import com.virtusa.service.UserService;
-import com.virtusa.login.AdminLogin;
-import com.virtusa.login.ApplicantLogin;
-import com.virtusa.login.HrLogin;
-import com.virtusa.login.InterviewerLogin;
-import com.virtusa.login.ManagerLogin;
+import com.virtusa.view.AdminView;
+import com.virtusa.view.ApplicantView;
+import com.virtusa.view.HrView;
+import com.virtusa.view.InterviewerView;
+import com.virtusa.view.ManagerView;
 
 public class Controller {
 	private UserService userService;
@@ -26,20 +26,20 @@ public class Controller {
 				userService.userAuthenticationService(userModel);
 		
 		if(userType.contentEquals("APPLICANT")) {
-			ApplicantLogin applicantLogin=new ApplicantLogin();
-			applicantLogin.applicantLoginWindow();
+			ApplicantView applicant=new ApplicantView();
+			applicant.applicantView();
 		}else if(userType.contentEquals("ADMIN")) {
-			AdminLogin adminLogin=new AdminLogin();
-			adminLogin.adminLoginWindow();
+			AdminView admin=new AdminView();
+			admin.adminView();
 		}else if(userType.contentEquals("HR")) {
-			HrLogin hrLogin=new HrLogin();
-			hrLogin.hrLoginWindow();
+			HrView hr=new HrView();
+			hr.hrView();
 		}else if(userType.contentEquals("INTERVIEWER")) {
-			InterviewerLogin interviewerLogin=new InterviewerLogin();
-			interviewerLogin.interviewerLoginWindow();
+			InterviewerView interviewer=new InterviewerView();
+			interviewer.interviewerView();
 		}else {	
-			ManagerLogin managerLogin=new ManagerLogin();
-			managerLogin.managerLoginWindow();        
+			ManagerView manager=new ManagerView();
+			manager.managerView();        
    }
 }
 }
